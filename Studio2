@@ -1,0 +1,40 @@
+
+// returns biggie size version of combo
+function biggie_size(combo) {
+    return combo+4;
+}
+
+// return non-biggie sized version of combo
+function unbiggie_size(biggie_combo) {
+    return biggie_combo-4;
+}
+
+// checks if combo is biggie sized or not
+function is_biggie_size(combo) {
+    return combo >= 5 ? true : false;
+}
+
+// returns the price of combo
+function combo_price(combo) {
+    return is_biggie_size(combo) ? unbiggie_size(combo)*1.17 + 0.5 : combo*1.17;
+}
+
+// returns empty order
+function empty_order() {
+    return 0;
+}
+
+// takes an order and combo and returns new order as string
+function add_to_order(order, combo) {
+    return stringify(order) + stringify(combo);
+}
+
+// takes order and returns the last combo
+function last_combo(order) {
+    return order%10;
+}
+
+// takes order and return without last combo
+function other_combos(order) {
+    return (order-last_combo(order))/10;
+}
